@@ -34,6 +34,13 @@ public class FieldGeneUtils {
                             fields.getLongValue("start", 0)
                     );
                     break;
+                case "long_inc_batch":
+                    gene = new LongGeneIncBatch(
+                            fields.getString("name"),
+                            fields.getLongValue("start", 0),
+                            fields.getIntValue("batch", 10)
+                    );
+                    break;
                 case "long_random":
                     gene = new LongGeneRandom(
                             fields.getString("name"),
@@ -53,6 +60,15 @@ public class FieldGeneUtils {
                             fields.getString("name"),
                             fields.getList("values", String.class),
                             fields.getIntValue("random", 0) == 1
+                    );
+                    break;
+                case "str_list_from_list":
+                    gene = new StringListGeneFromList(
+                            fields.getString("name"),
+                            fields.getList("values", String.class),
+                            fields.getIntValue("minSize", 0),
+                            fields.getIntValue("maxSize", 2),
+                            fields.getIntValue("duplicated", 0) == 1
                     );
                     break;
                 default:

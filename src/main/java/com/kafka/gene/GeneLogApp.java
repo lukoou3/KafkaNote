@@ -77,7 +77,7 @@ public class GeneLogApp {
                                 }
 
                                 String ele = JSON.toJSONString(map);
-                                System.out.println(ele);
+                                //System.out.println(ele);
                                 producer.send(new ProducerRecord<>(topic, ele));
                             }
 
