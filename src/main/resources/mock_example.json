@@ -1,0 +1,110 @@
+[
+  {
+    "name": "id",
+    "type": "UniqueSequence",
+    "start": 0
+  },
+  {
+    "name": "sub_id",
+    "type": "Sequence",
+    "start": 0
+  },
+  {
+    "name": "int_random",
+    "type": "Number",
+    "start": 0,
+    "end": 10000
+  },
+  {
+    "name": "int_inc",
+    "type": "Number",
+    "start": 0,
+    "end": 10000,
+    "random": false
+  },
+  {
+    "name": "int_options",
+    "type": "Number",
+    "options": [20, 22, 25, 30],
+    "random": true
+  },
+  {
+    "name": "int_options_round_robin",
+    "type": "Number",
+    "options": [20, 22, 25, 30],
+    "random": false
+  },
+  {
+    "name": "double_random",
+    "type": "Number",
+    "start": 0.0,
+    "end": 10000.0
+  },
+  {
+    "name": "str_regex",
+    "type": "String",
+    "regex": "[a-z]{5,10}",
+    "nullRate": 0.1
+  },
+  {
+    "name": "str_options",
+    "type": "String",
+    "options": ["a", "b", "c"]
+  },
+  {
+    "name": "str_options_round_robin",
+    "type": "String",
+    "options": ["a", "b", "c"],
+    "random": false
+  },
+  {
+    "name": "timestamp",
+    "type": "Timestamp"
+  },
+  {
+    "name": "timestamp_ms",
+    "type": "Timestamp",
+    "unit": "millis"
+  },
+  {
+    "name": "timestamp_str",
+    "type": "FormatTimestamp",
+    "format": "yyyy-MM-dd HH:mm:ss"
+  },
+  {
+    "name": "ip",
+    "type": "IpV4",
+    "start": "192.168.20.1",
+    "end": "192.168.20.255"
+  },
+  {
+    "name": "array_str",
+    "type": "String",
+    "options": ["a", "b", "c"],
+    "array": true,
+    "arrayLenMin": 1,
+    "arrayLenMax": 3
+  },
+  {
+    "name": "array_object",
+    "type": "Object",
+    "fields": [
+      {
+        "name": "str",
+        "type": "String",
+        "regex": "[a-z]{5,10}",
+        "nullRate": 0.1
+      },
+      {
+        "name": "name",
+        "type": "Expression",
+        "expression": "#{Name.name}"
+      },
+      {
+        "name": "emailAddress",
+        "type": "Expression",
+        "expression": "#{internet.emailAddress}"
+      }
+    ]
+  }
+]
